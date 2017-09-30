@@ -108,6 +108,11 @@ prompt_dir() {
   prompt_segment blue $PRIMARY_FG ' %~ '
 }
 
+#Date: add current date 
+prompt_date() {
+  prompt_segment blue black '%{%D{%m/%f/%y}|%D{%L:%M:%S}'
+}
+
 # Status:
 # - was there an error
 # - am I root
@@ -135,6 +140,7 @@ prompt_virtualenv() {
 prompt_agnoster_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
+  prompt_date
   prompt_status
   prompt_context
   prompt_virtualenv
@@ -147,6 +153,8 @@ prompt_agnoster_precmd() {
   vcs_info
   PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
 }
+
+
 
 prompt_agnoster_setup() {
   autoload -Uz add-zsh-hook
