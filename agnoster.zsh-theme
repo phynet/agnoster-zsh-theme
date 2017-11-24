@@ -110,7 +110,7 @@ prompt_dir() {
 
 #Date: add current date 
 prompt_date() {
-  prompt_segment blue black '%{%D{%m/%f/%y}|%D{%L:%M:%S}'
+  prompt_segment red black '%{%D{%m/%f/%y}|%D{%L:%M:%S}'
 }
 
 # Status:
@@ -152,7 +152,7 @@ prompt_agnoster_main() {
 prompt_agnoster_precmd() {
   vcs_info
   PROMPT='╭─%{%f%b%k%}$(prompt_agnoster_main) 
-  ╰─'
+╰─
 }
 
 
